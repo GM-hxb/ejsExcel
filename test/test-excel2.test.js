@@ -1,7 +1,7 @@
-var fs = require("fs");
-var path=require('path');
-var assert=require('assert');
-var ejsExcel = require("../src");
+const fs = require("fs");
+const path=require('path');
+const assert=require('assert');
+const ejsExcel = require("../src");
 
 
 const TEMPLATE_PATH=path.join(__dirname,'./template/report.xlsx');
@@ -9,10 +9,8 @@ const OUT_PATH=path.join(__dirname,"./generated/report2.xlsx");
 describe('test excel 2',function(){
 
     it('test report.xlsx',function(){
-        //获得Excel模板的buffer对象
         var exlBuf = fs.readFileSync(TEMPLATE_PATH);
 
-        //数据源
         var data = [
             [{ "table_name": "现金报表", "date": '2014-04-09' }],
             [
@@ -21,11 +19,10 @@ describe('test excel 2',function(){
             ]
         ];
 
-        //用数据源(对象)data渲染Excel模板
         return ejsExcel.renderExcel(exlBuf, data)
             .then(function(exlBuf2){
                 fs.writeFileSync(OUT_PATH, exlBuf2);
-                console.log("生成report2.xlsx");
+                console.log("report2.xlsx");
             }).catch(function(err) {
                 console.error(err);
                 assert.fail(err);

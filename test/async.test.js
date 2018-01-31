@@ -1,7 +1,7 @@
 const fs = require("fs");
-const path=require('path');
-const assert=require('assert');
-const {Promise_fromCallback,Promise_fromStandard}=require('../src/async');
+const path = require('path');
+const assert = require('assert');
+const {Promise_fromCallback, Promise_fromStandard} = require('../src/async');
 
 
 describe('test async.js',function(){
